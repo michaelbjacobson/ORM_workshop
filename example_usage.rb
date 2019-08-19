@@ -11,3 +11,5 @@ new_user = User.create(
 )
 
 puts new_user.name
+puts new_user.login('P4nG4lacticG4rgleBl4ster')
+puts new_user.last_login

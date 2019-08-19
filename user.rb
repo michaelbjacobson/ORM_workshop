@@ -7,7 +7,7 @@ class User
   property :date_of_birth, Date
   property :email, String
   property :email_confirmed, Boolean, default: false
-  property :last_login, DateTime
+  property :last_login, Time
   property :password, Text
 
   def name
@@ -15,6 +15,10 @@ class User
   end
 
   def login(password)
-    password == self.password
+    return false unless password == self.password
+
+    self.update(last_login: Time.now)
+    true
   end
 end
+
